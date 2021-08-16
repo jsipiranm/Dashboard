@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style_dashboard.css" />
+    <title>Indicadores</title>
+  </head>
+  <body>
+    <input type="checkbox" id="toggle-sidebar" />
+    <aside class="barra_lateral">
+      <div class="marca">
+        <!-- <h2><i class="fas fa-anchor"></i> <span> Tsoluciono</span></h2> -->
+        <img src="../img/gob_reg.jpg" alt="" />
+        <img src="../img/escudo_grll.png" alt="" />
+      </div>
+      <div class="menu_lateral">
+        <ul>
+          <li class="opcion_menu active" data-id="menulat_dashboard">
+            <a href=""
+              ><i class="fas fa-clipboard-list"></i><span>Dashboard</span></a
+            >
+          </li>
+          <li class="opcion_menu" data-id="menulat_resultados">
+            <a href=""
+              ><i class="fas fa-bullseye"></i><span>Resultados</span></a
+            >
+          </li>
+          <li class="opcion_menu" data-id="menulat_ejecucionppo">
+            <a href=""
+              ><i class="fas fa-tachometer-alt"></i><span>Ejecución presupuestal</span></a
+            >
+          </li>
+          <!-- <li class="opcion_menu" data-id="menulat_4">
+            <a href=""><i class="fab fa-react"></i><span>React</span></a>
+          </li>
+          <li class="opcion_menu" data-id="menulat_5">
+            <a href=""
+              ><i class="fab fa-js-square"></i><span>Javascript</span></a
+            >
+          </li>
+          <li class="opcion_menu" data-id="menulat_6">
+            <a href=""><i class="fab fa-css3-alt"></i><span>CSS</span></a>
+          </li>
+          <li class="opcion_menu" data-id="menulat_7">
+            <a href=""><i class="fab fa-html5"></i><span>HTML5</span></a>
+          </li> -->
+        </ul>
+
+        <div class="footer-lateral">
+          <img src="../img/juntosprosperidad.png" alt="" />
+        </div>
+      </div>
+    </aside>
+    <section class="contenido_principal">
+      <header class="encabezado">
+        <h2>
+          <label for="toggle-sidebar">
+            <i class="fas fa-bars"></i>
+          </label>
+          <span id="titulo_activo"> Dashboard </span>
+        </h2>
+        <div class="user-wrapper">
+          <a href="">
+            <img src="../img/user.jpg" width="40px" height="40px" alt="" />
+          </a>
+
+          <div class="user_data">
+            <h4 class="header_user_name">Jose Sipiran</h4>
+            <small class="header_user_rol">Super Admin</small>
+          </div>
+          <i class="fas fa-sign-out-alt"></i>
+        </div>
+      </header>
+      <section class="contenido">
+        <article id="art_dashboard" class="cont_princ act-dashboard active">
+          <div class="contorno">
+            <canvas id="myChart1"></canvas>
+          </div>
+          <div class="contorno">
+            <canvas id="myChart2"></canvas>
+          </div>
+          <div class="contorno">
+            <canvas id="myChart3"></canvas>
+          </div>
+        </article>
+        <article id="art_resultados" class="cont_princ act-resultados">
+          <div class="header">
+            <h5 id="titulo">Resultados</h5>
+            <div class="custome-check">
+              <i class="fas fa-th"></i>
+              <input type="checkbox" id="toggle_show" />
+              <i class="fas fa-align-justify"></i>
+            </div>
+          </div>
+          
+          <h5 id="titulo_mobile"></h5>
+          <div class="contenedor_grid"></div>
+          <div class="contenedor_table"></div>
+          <div class="contenedor_hito"></div>
+        </article>
+        <article id="art_ejecucionppo" class="cont_princ act-ejecucionppo">
+          <div class="header">
+            <h5 id="titulo">Ejecución presupuestal</h5>
+            <div class="custome-check">
+              <i id="chk_grid_ejecppo" class="fas fa-th"></i>
+              <input type="checkbox" id="toggle_show_ejecppo" />
+              <i id="chk_table_ejecppo" class="fas fa-align-justify"></i>
+            </div>
+          </div>
+          
+          <h5 id="titulo_mobile">Ejecución presupuestal</h5>
+          <div class="contenedor_grid_ejecppo"></div>
+          <div class="contenedor_table_ejecppo"></div>
+        </article>
+        <article id="art_4" class="cont_princ">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cabecera1</th>
+                  <th>Cabecera2</th>
+                  <th>Cabecera3</th>
+                  <th>Cabecera4</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Contenido1</td>
+                  <td>Contenido2</td>
+                  <td>Contenido3</td>
+                  <td>Contenido4</td>
+                </tr>
+                <tr>
+                  <td>Contenido1</td>
+                  <td>Contenido2</td>
+                  <td>Contenido3</td>
+                  <td>Contenido4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article id="art_5" class="cont_princ">Javascript</article>
+        <article id="art_6" class="cont_princ">CSS</article>
+        <article id="art_7" class="cont_princ">HTML5</article>
+      </section>
+    </section>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/resultado_grafico_hito.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"></script>
+    <script src="../js/dashboard_graficos.js"></script>
+  </body>
+</html>

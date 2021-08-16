@@ -1,0 +1,8 @@
+[
+    { "id": 1, "nombre": "Entorno económico", "avance": 50.85,"id_padre": 0},
+    { "id": 2, "nombre": "Infraestructura", "avance": 49.86 ,"id_padre": 0},
+    { "id": 3, "nombre": "Salud", "avance": 48.47 ,"id_padre": 0},
+    { "id": 4, "nombre": "Educación", "avance": 49.57 ,"id_padre": 0},
+    { "id": 5, "nombre": "Laboral", "avance": 52.52 ,"id_padre": 0},
+    { "id": 6, "nombre": "Institucional", "avance": 50.65 ,"id_padre": 0}
+  ]

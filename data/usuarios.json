@@ -1,0 +1,6 @@
+[
+    { "id": 1, "usuario": "gerente", "password": "gerente","cargo":"Gerente"},
+    { "id": 2, "usuario": "subgerente", "password": "subgerente","cargo":"SubGerente"},    
+    { "id": 3, "usuario": "asesor", "password": "asesor","cargo":"Asesor"},    
+    { "id": 4, "usuario": "test", "password": "test","cargo":"Asesor"}    
+  ]

@@ -1,0 +1,163 @@
+[
+    {
+      "id": 1,
+      "nombre": "Gerencia Regional. Cooperación técnica y promoción de la inversión privada",
+      "avance": 56.77,
+      "ejecucion_ppo":59.34,
+      "id_padre": 1
+    },
+    {
+      "id": 2,
+      "nombre": "Gerencia Regional Administración y adjudicación de terrenos",
+      "avance": 46.73,
+      "ejecucion_ppo":62.17,
+      "id_padre": 1
+    },
+    {
+      "id": 3,
+      "nombre": "Gerencia Regional Agricultura",
+      "avance": 47.51,
+      "ejecucion_ppo":29.37,
+      "id_padre": 1
+    },
+    {
+      "id": 4,
+      "nombre": "Gerencia Regional de Producción",
+      "avance": 49.07,
+      "ejecucion_ppo":91.76,
+      "id_padre": 1
+    },
+    {
+      "id": 5,
+      "nombre": "Gerencia Regional de comerció exterior, turismo y artesanía",
+      "avance": 51.57,
+      "ejecucion_ppo":46.73,
+      "id_padre": 1
+    },
+    {
+      "id": 6,
+      "nombre": "Gerencia Regional energía, minas e hidrocarburos",
+      "avance": 51.86,
+      "ejecucion_ppo":58.39,
+      "id_padre": 1
+    },
+    {
+      "id": 7,
+      "nombre": "Gerencia Regional del Ambiente",
+      "avance": 55.02,
+      "ejecucion_ppo":49.67,
+      "id_padre": 1
+    },
+    {
+      "id": 8,
+      "nombre": "Centro regional de capacitación",
+      "avance": 48.88,
+      "ejecucion_ppo":39.45,
+      "id_padre": 1
+    },
+    {
+      "id": 9,
+      "nombre": "Proyecto especial parque industrial de Trujillo",
+      "avance": 54.76,
+      "ejecucion_ppo":18.47,
+      "id_padre": 1
+    },
+    {
+      "id": 10,
+      "nombre": "Proyecto especial Chavimochic",
+      "avance": 46.35,
+      "ejecucion_ppo":48.46,
+      "id_padre": 1
+    },
+    {
+      "id": 11,
+      "nombre": "Gerencia Regional de Infraestructura",
+      "avance": 53.65,
+      "ejecucion_ppo":67.62,
+      "id_padre": 2
+    },
+    {
+      "id": 12,
+      "nombre": "Gerencia Regional de  vivienda, construcción y saneamiento",
+      "avance": 49.6,
+      "ejecucion_ppo":48.56,
+      "id_padre": 2
+    },
+    {
+      "id": 13,
+      "nombre": "Gerencia Regional de transporte y comunicación",
+      "avance": 46.33,
+      "ejecucion_ppo":47.89,
+      "id_padre": 2
+    },
+    {
+      "id": 14,
+      "nombre": "Gerencia Regional de salud",
+      "avance": 45.91,
+      "ejecucion_ppo":38.56,
+      "id_padre": 3
+    },
+    {
+      "id": 15,
+      "nombre": "Gerencia Regional de desarrollo e inclusión social",
+      "avance": 51.03,
+      "ejecucion_ppo":17.34,
+      "id_padre": 3
+    },
+    {
+      "id": 16,
+      "nombre": "Gerencia Regional de educación",
+      "avance": 49.57,
+      "ejecucion_ppo":85.57,
+      "id_padre": 4
+    },
+    {
+      "id": 17,
+      "nombre": "Gerencia Regional  de trabajo y promoción del empleo Trabajo",
+      "avance": 52.52,
+      "ejecucion_ppo":75.37,
+      "id_padre": 5
+    },
+    {
+      "id": 18,
+      "nombre": "Gerencia Regional de planeamiento y acondicionamiento territorial",
+      "avance": 50.93,
+      "ejecucion_ppo":63.74,
+      "id_padre": 6
+    },
+    {
+      "id": 19,
+      "nombre": "Gerencia Regional de presupuesto",
+      "avance": 50.07,
+      "ejecucion_ppo":28.45,
+      "id_padre": 6
+    },
+    {
+      "id": 20,
+      "nombre": "Gerencia Regional de Administración",
+      "avance": 47.41,
+      "ejecucion_ppo":15.72,
+      "id_padre": 6
+    },
+    {
+      "id": 21,
+      "nombre": "Gerencia Regional de contrataciones",
+      "avance": 49.41,
+      "ejecucion_ppo":96.24,
+      "id_padre": 6
+    },
+    {
+      "id": 22,
+      "nombre": "Gerencia Regional  imagen institucional",
+      "avance": 53.57,
+      "ejecucion_ppo":49.23,
+      "id_padre": 6
+    },
+    {
+      "id": 23,
+      "nombre": "Gerencia Regional de defensa nacional",
+      "avance": 52.48,
+      "ejecucion_ppo":63.84,
+      "id_padre": 6
+    }
+  ]

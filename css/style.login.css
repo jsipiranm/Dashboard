@@ -1,0 +1,23 @@
+.container{
+    height: 100vh;
+     display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.card {
+    width:40%;;
+}
+
+@media (max-width: 600px) {
+    .card {
+        width:80%;;
+    }
+  }
+
+  .box_red{
+      border-color: red;
+  }
+
+  .box_normal{
+    border-color: #CED4DA;
+}
