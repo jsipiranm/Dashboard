@@ -36,14 +36,15 @@
               ><i class="fas fa-tachometer-alt"></i><span>Ejecución presupuestal</span></a
             >
           </li>
-          <!-- <li class="opcion_menu" data-id="menulat_4">
-            <a href=""><i class="fab fa-react"></i><span>React</span></a>
+           <li class="opcion_menu" data-id="menulat_proyectos">
+            <a href=""><i class="fas fa-project-diagram"></i><span>Proyectos</span></a>
           </li>
-          <li class="opcion_menu" data-id="menulat_5">
+          <li class="opcion_menu" data-id="menulat_hitos">
             <a href=""
-              ><i class="fab fa-js-square"></i><span>Javascript</span></a
+              ><i class="fas fa-tasks"></i><span>Hitos</span></a
             >
           </li>
+          <!--
           <li class="opcion_menu" data-id="menulat_6">
             <a href=""><i class="fab fa-css3-alt"></i><span>CSS</span></a>
           </li>
@@ -72,13 +73,49 @@
 
           <div class="user_data">
             <h4 class="header_user_name">Jose Sipiran</h4>
-            <small class="header_user_rol">Super Admin</small>
+            <small class="header_user_rol">Admin</small>
           </div>
           <i class="fas fa-sign-out-alt"></i>
         </div>
       </header>
       <section class="contenido">
         <article id="art_dashboard" class="cont_princ act-dashboard active">
+          <div class="cartilla proy">
+            <div class="cartilla-head">
+              <i class="fas fa-project-diagram"></i>
+              <span>79</span>
+            </div>
+            <div class="cartilla-body">
+               Proyectos en ejecución
+            </div>
+            <div class="cartilla-footer">
+              <span class="cartilla-btn" id="cartilla_btn_proyectos">Ver todos</span>
+            </div>
+          </div>
+          <div class="cartilla ejec-ppo">
+            <div class="cartilla-head">
+              <i class="far fa-clock"></i>
+              <span>18</span>
+            </div>
+            <div class="cartilla-body">
+               Gerencias con retraso presupuestal
+            </div>
+            <div class="cartilla-footer">
+              <span class="cartilla-btn"  id="cartilla_btn_ejecppo">Ver todos</span>
+            </div>
+          </div>
+          <div class="cartilla hito-completo">
+            <div class="cartilla-head">
+              <i class="fas fa-tasks"></i>
+              <span>12</span>
+            </div>
+            <div class="cartilla-body">
+              Nuevos Hitos completados
+            </div>
+            <div class="cartilla-footer">
+              <span class="cartilla-btn"  id="cartilla_btn_hitos">Ver todos</span>
+            </div>
+          </div>
           <div class="contorno">
             <canvas id="myChart1"></canvas>
           </div>
@@ -118,35 +155,34 @@
           <div class="contenedor_grid_ejecppo"></div>
           <div class="contenedor_table_ejecppo"></div>
         </article>
-        <article id="art_4" class="cont_princ">
-          <div class="table-responsive">
-            <table>
-              <thead>
-                <tr>
-                  <th>Cabecera1</th>
-                  <th>Cabecera2</th>
-                  <th>Cabecera3</th>
-                  <th>Cabecera4</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Contenido1</td>
-                  <td>Contenido2</td>
-                  <td>Contenido3</td>
-                  <td>Contenido4</td>
-                </tr>
-                <tr>
-                  <td>Contenido1</td>
-                  <td>Contenido2</td>
-                  <td>Contenido3</td>
-                  <td>Contenido4</td>
-                </tr>
-              </tbody>
-            </table>
+        <article id="art_proyectos" class="cont_princ act-proyectos">
+          <div class="header">
+            <h5 id="titulo">Proyectos</h5>
+            <div class="custome-check">
+              <i id="chk_grid_proyectos" class="fas fa-th"></i>
+              <input type="checkbox" id="toggle_show_proyectos" />
+              <i id="chk_table_proyectos" class="fas fa-align-justify"></i>
+            </div>
           </div>
+          
+          <h5 id="titulo_mobile">Proyectos</h5>
+          <div class="contenedor_grid_proyectos"></div>
+          <div class="contenedor_table_proyectos"></div>
         </article>
-        <article id="art_5" class="cont_princ">Javascript</article>
+        <article id="art_hitos" class="cont_princ act-hitos">
+          <div class="header">
+            <h5 id="titulo">Hitos</h5>
+            <div class="custome-check">
+              <i id="chk_grid_hitos" class="fas fa-th"></i>
+              <input type="checkbox" id="toggle_show_hitos" />
+              <i id="chk_table_hitos" class="fas fa-align-justify"></i>
+            </div>
+          </div>
+          
+          <h5 id="titulo_mobile">Hitos</h5>
+          <div class="contenedor_grid_hitos"></div>
+          <div class="contenedor_table_hitos"></div>
+        </article>
         <article id="art_6" class="cont_princ">CSS</article>
         <article id="art_7" class="cont_princ">HTML5</article>
       </section>

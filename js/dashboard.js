@@ -72,6 +72,14 @@ function get_setting_view_ejecppo() {
   return sessionStorage.getItem("tipo_vista_ejecppo");
 }
 
+function get_setting_view_proyectos() {
+  return sessionStorage.getItem("tipo_vista_proyectos");
+}
+
+function get_setting_view_hitos() {
+  return sessionStorage.getItem("tipo_vista_hitos");
+}
+
 function compara(a, b) {
   let comparison = 0;
   if (a.avance > b.avance) {
@@ -111,7 +119,7 @@ function crear_card(el) {
 
   let div_card = document.createElement("div");
   div_card.className = "card";
-  div_card.setAttribute("data-id", level + "_" + el.id); 
+  div_card.setAttribute("data-id", level + "_" + el.id);
   div_card.style.borderLeftColor = color_asignado;
   div_card.addEventListener("click", function (e) {
     let id_nivel = this.getAttribute("data-id").split("_")[1];
@@ -388,6 +396,22 @@ if ([null, "", "grid"].includes(get_setting_view_ejecppo())) {
   // activa_tabla();
 }
 
+if ([null, "", "grid"].includes(get_setting_view_proyectos())) {
+  document.querySelector("#toggle_show_proyectos").checked = false;
+  // activa_grid();
+} else {
+  document.querySelector("#toggle_show_proyectos").checked = true;
+  // activa_tabla();
+}
+
+if ([null, "", "grid"].includes(get_setting_view_hitos())) {
+  document.querySelector("#toggle_show_hitos").checked = false;
+  // activa_grid();
+} else {
+  document.querySelector("#toggle_show_hitos").checked = true;
+  // activa_tabla();
+}
+
 let show_grid = document.querySelector(".fa-th");
 show_grid.addEventListener("click", function () {
   // activa_grid();
@@ -455,6 +479,76 @@ toggle_show_ejecppo.addEventListener("change", function () {
   }
   // console.log("se ejecuto");
 });
+
+let chk_grid_proyectos = document.querySelector("#chk_grid_proyectos");
+chk_grid_proyectos.addEventListener("click", function () {
+  // activa_grid();
+  carga_proyectos("grid");
+  document.querySelector("#toggle_show_proyectos").checked = false;
+  sessionStorage.setItem("tipo_vista_proyectos", "grid");
+});
+
+let chk_table_proyectos = document.querySelector("#chk_table_proyectos");
+chk_table_proyectos.addEventListener("click", function () {
+  // activa_tabla();
+  carga_proyectos("table");
+  document.querySelector("#toggle_show_proyectos").checked = true;
+  sessionStorage.setItem("tipo_vista_proyectos", "table");
+});
+
+let toggle_show_proyectos = document.querySelector("#toggle_show_proyectos");
+toggle_show_proyectos.addEventListener("change", function () {
+  // obtener_resultados( get_setting_view());
+
+  if (this.checked) {
+    // activa_tabla();
+    carga_proyectos("table");
+    document.querySelector("#toggle_show_proyectos").checked = true;
+    sessionStorage.setItem("tipo_vista_proyectos", "table");
+  } else {
+    // activa_grid();
+    carga_proyectos("grid");
+    document.querySelector("#toggle_show_proyectos").checked = false;
+    sessionStorage.setItem("tipo_vista_proyectos", "grid");
+  }
+  // console.log("se ejecuto");
+});
+
+
+let chk_grid_hitos = document.querySelector("#chk_grid_hitos");
+chk_grid_hitos.addEventListener("click", function () {
+  // activa_grid();
+  carga_hitos("grid");
+  document.querySelector("#toggle_show_hitos").checked = false;
+  sessionStorage.setItem("tipo_vista_hitos", "grid");
+});
+
+let chk_table_hitos = document.querySelector("#chk_table_hitos");
+chk_table_hitos.addEventListener("click", function () {
+  // activa_tabla();
+  carga_hitos("table");
+  document.querySelector("#toggle_show_hitos").checked = true;
+  sessionStorage.setItem("tipo_vista_hitos", "table");
+});
+
+let toggle_show_hitos = document.querySelector("#toggle_show_hitos");
+toggle_show_hitos.addEventListener("change", function () {
+  // obtener_resultados( get_setting_view());
+
+  if (this.checked) {
+    // activa_tabla();
+    carga_hitos("table");
+    document.querySelector("#toggle_show_hitos").checked = true;
+    sessionStorage.setItem("tipo_vista_hitos", "table");
+  } else {
+    // activa_grid();
+    carga_hitos("grid");
+    document.querySelector("#toggle_show_hitos").checked = false;
+    sessionStorage.setItem("tipo_vista_hitos", "grid");
+  }
+  // console.log("se ejecuto");
+});
+
 
 function crea_elemento_retorno(ele) {
   if (ele.tipo == "button") {
@@ -1192,6 +1286,7 @@ function reset_contenido_active() {
   });
 }
 
+// Seccion de ejecucion presupuestal
 
 function crear_row_ejecppo(el) {
   let color_asignado = get_variable_css(
@@ -1311,7 +1406,7 @@ function crear_card_ejecppo(el) {
 
   let div_card = document.createElement("div");
   div_card.className = "card";
-  div_card.setAttribute("data-id", level + "_" + el.id); 
+  div_card.setAttribute("data-id", level + "_" + el.id);
   div_card.style.borderLeftColor = color_asignado;
   div_card.addEventListener("click", function (e) {
     let id_nivel = this.getAttribute("data-id").split("_")[1];
@@ -1388,7 +1483,6 @@ function mostrar_table_ejecppo(data, base_nombre) {
   document.querySelector(".contenedor_grid_ejecppo").innerHTML = "";
   let contenedor = document.querySelector(".contenedor_table_ejecppo");
   contenedor.innerHTML = "";
-  
 
   let d_resp = document.createElement("div");
   d_resp.className = "table-responsive";
@@ -1461,7 +1555,6 @@ function activa_tabla_ejecppo(url_current, base_nombre) {
   sessionStorage.setItem("tipo_vista_ejecppo", "table");
 }
 
-
 function carga_ejecucionppo(tipo_vista) {
   if (["grid", "", null].includes(tipo_vista)) {
     activa_grid_ejecppo(urls[1].url);
@@ -1473,6 +1566,588 @@ function carga_ejecucionppo(tipo_vista) {
     document.querySelector(".contenedor_grid_ejecppo").style.display = "none";
   }
 }
+
+// Fin de seccion de ejecucion presupuestal
+
+// Seccion de proyectos
+
+function crear_row_proyectos(el) {
+  let color_asignado = get_variable_css(
+    el.avance <= 25
+      ? "--color-25"
+      : el.avance <= 50
+      ? "--color-50"
+      : el.avance <= 75
+      ? "--color-75"
+      : "--color-100"
+  );
+
+  let level = sessionStorage.getItem("level_result")
+    ? sessionStorage.getItem("level_result")
+    : "pilares";
+
+  console.log(level);
+
+  let tr = document.createElement("tr");
+
+  let td_gerencia = document.createElement("td");
+  td_gerencia.innerHTML = el.nombre;
+
+  let td_avance = document.createElement("td");
+  td_avance.className = "avance";
+
+  let div_progress = document.createElement("div");
+  div_progress.className = "progress";
+
+  let div_progress_bar = document.createElement("div");
+  div_progress_bar.className = "progress-bar";
+  div_progress_bar.style.width = el.avance + "%";
+  div_progress_bar.style.backgroundColor = color_asignado;
+
+  td_avance.appendChild(div_progress);
+  div_progress.appendChild(div_progress_bar);
+
+  let td_porcentaje = document.createElement("td");
+  td_porcentaje.className = "td_centrado";
+
+  let i_circle = document.createElement("i");
+  i_circle.className = "fas fa-circle";
+  i_circle.style.color = color_asignado;
+
+  let span_porc = document.createElement("span");
+  span_porc.innerHTML = el.avance + "%";
+  // td_porcentaje.innerHTML = el.avance + "%";
+
+  td_porcentaje.appendChild(i_circle);
+
+  td_porcentaje.appendChild(span_porc);
+
+  //<i class="fas fa-circle"></i>
+
+  let td_acciones = document.createElement("td");
+
+  let btn_accion = document.createElement("button");
+  btn_accion.innerHTML = "Ver detalle";
+  btn_accion.setAttribute("data-id", level + "_" + el.id);
+  btn_accion.classList.add("btn");
+  btn_accion.addEventListener("click", function (e) {
+    let id_nivel = this.getAttribute("data-id").split("_")[1];
+    let nivel = this.getAttribute("data-id").split("_")[0];
+
+    // switch (nivel) {
+    //   case "pilares":
+    //     sessionStorage.setItem("id_pilar", id_nivel);
+    //     sessionStorage.setItem("level_result", "gerencias");
+    //     break;
+    //   case "gerencias":
+    //     sessionStorage.setItem("id_gerencia", id_nivel);
+    //     sessionStorage.setItem("level_result", "proyectos");
+    //     break;
+    //   case "proyectos":
+    //     sessionStorage.setItem("id_proyecto", id_nivel);
+    //     sessionStorage.setItem("level_result", "hitos");
+    //     break;
+    //   case "hitos":
+    //     sessionStorage.setItem("id_hito", id_nivel);
+    //     sessionStorage.setItem("level_result", "hito");
+    //     break;
+    //   case "hito":
+    //     sessionStorage.setItem("id_hito", id_nivel);
+    //     sessionStorage.setItem("level_result", "hito");
+    //     break;
+    // }
+
+    // obtener_resultados(get_setting_view());
+  });
+
+  td_acciones.appendChild(btn_accion);
+
+  tr.appendChild(td_gerencia);
+  tr.appendChild(td_avance);
+  tr.appendChild(td_porcentaje);
+  tr.appendChild(td_acciones);
+
+  return tr;
+}
+
+function crear_card_proyectos(el) {
+  let color_asignado = get_variable_css(
+    el.avance <= 25
+      ? "--color-25"
+      : el.avance <= 50
+      ? "--color-50"
+      : el.avance <= 75
+      ? "--color-75"
+      : "--color-100"
+  );
+
+  let level = sessionStorage.getItem("level_result")
+    ? sessionStorage.getItem("level_result")
+    : "pilares";
+
+  console.log(level);
+
+  let div_card = document.createElement("div");
+  div_card.className = "card";
+  div_card.setAttribute("data-id", level + "_" + el.id);
+  div_card.style.borderLeftColor = color_asignado;
+  div_card.addEventListener("click", function (e) {
+    let id_nivel = this.getAttribute("data-id").split("_")[1];
+    let nivel = this.getAttribute("data-id").split("_")[0];
+
+    // switch (nivel) {
+    //   case "pilares":
+    //     sessionStorage.setItem("id_pilar", id_nivel);
+    //     sessionStorage.setItem("level_result", "gerencias");
+    //     break;
+    //   case "gerencias":
+    //     sessionStorage.setItem("id_gerencia", id_nivel);
+    //     sessionStorage.setItem("level_result", "proyectos");
+    //     break;
+    //   case "proyectos":
+    //     sessionStorage.setItem("id_proyecto", id_nivel);
+    //     sessionStorage.setItem("level_result", "hitos");
+    //     break;
+    //   case "hitos":
+    //     sessionStorage.setItem("id_hito", id_nivel);
+    //     sessionStorage.setItem("level_result", "hito");
+    //     break;
+    //   case "hito":
+    //     sessionStorage.setItem("id_hito", id_nivel);
+    //     sessionStorage.setItem("level_result", "hito");
+    //     break;
+    // }
+
+    // obtener_resultados(get_setting_view());
+  });
+
+  let div_card_header = document.createElement("div");
+  div_card_header.className = "card-header";
+
+  let h5 = document.createElement("h5");
+  h5.innerHTML = el.nombre;
+  let span = document.createElement("span");
+  span.innerHTML = el.avance + "%";
+
+  div_card_header.appendChild(h5);
+  div_card_header.appendChild(span);
+
+  let div_card_body = document.createElement("div");
+  div_card_body.className = "card-body";
+
+  let div_progress = document.createElement("div");
+  div_progress.className = "progress";
+
+  let div_progress_bar = document.createElement("div");
+  div_progress_bar.className = "progress-bar";
+  div_progress_bar.style.width = el.avance + "%";
+  div_progress_bar.style.background = color_asignado;
+
+  div_progress.appendChild(div_progress_bar);
+  div_card_body.appendChild(div_progress);
+
+  div_card.appendChild(div_card_header);
+  div_card.appendChild(div_card_body);
+
+  return div_card;
+}
+
+function mostrar_grid_proyectos(data) {
+  document.querySelector(".contenedor_table_proyectos").innerHTML = "";
+  let contenedor = document.querySelector(".contenedor_grid_proyectos");
+  contenedor.innerHTML = "";
+
+  data.forEach((el) => {
+    contenedor.appendChild(crear_card_proyectos(el));
+  });
+}
+
+function mostrar_table_proyectos(data, base_nombre) {
+  document.querySelector(".contenedor_grid_proyectos").innerHTML = "";
+  let contenedor = document.querySelector(".contenedor_table_proyectos");
+  contenedor.innerHTML = "";
+
+  let d_resp = document.createElement("div");
+  d_resp.className = "table-responsive";
+
+  contenedor.appendChild(d_resp);
+
+  let table = document.createElement("table");
+  d_resp.appendChild(table);
+
+  let thead = document.createElement("thead");
+  let tbody = document.createElement("tbody");
+
+  table.appendChild(thead);
+  table.appendChild(tbody);
+
+  let tr_head = document.createElement("tr");
+
+  let th_gerencia = document.createElement("th");
+  th_gerencia.innerHTML = base_nombre;
+
+  let th_avance = document.createElement("th");
+  th_avance.innerHTML = "Avance";
+  th_avance.className = "avance";
+
+  let th_porcentaje = document.createElement("th");
+  th_porcentaje.innerHTML = "Porcentaje";
+  th_porcentaje.classList.add("porcentaje");
+  th_porcentaje.classList.add("td_centrado");
+
+  let th_acciones = document.createElement("th");
+  th_acciones.innerHTML = "Acciones";
+  th_acciones.classList.add("td_centrado");
+
+  tr_head.appendChild(th_gerencia);
+  tr_head.appendChild(th_avance);
+  tr_head.appendChild(th_porcentaje);
+  tr_head.appendChild(th_acciones);
+
+  thead.appendChild(tr_head);
+
+  data.forEach((el) => {
+    tbody.appendChild(crear_row_proyectos(el));
+  });
+}
+
+function activa_grid_proyectos(url_current) {
+  document.querySelector("#toggle_show_proyectos").checked = false;
+
+  fetch(url_current)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      mostrar_grid_proyectos(data.sort(compara));
+    })
+    .catch((error) => console.log(error));
+
+  sessionStorage.setItem("tipo_vista_proyectos", "grid");
+}
+
+function activa_tabla_proyectos(url_current, base_nombre) {
+  document.querySelector("#toggle_show_proyectos").checked = true;
+  fetch(url_current)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      mostrar_table_proyectos(data.sort(compara), base_nombre);
+    })
+    .catch((error) => console.log(error));
+
+  sessionStorage.setItem("tipo_vista_proyectos", "table");
+}
+
+function carga_proyectos(tipo_vista) {
+  if (["grid", "", null].includes(tipo_vista)) {
+    activa_grid_proyectos(urls[2].url);
+    document.querySelector(".contenedor_table_proyectos").style.display =
+      "none";
+    document.querySelector(".contenedor_grid_proyectos").style.display = "grid";
+  } else {
+    activa_tabla_proyectos(urls[2].url, urls[2].nombre);
+    document.querySelector(".contenedor_table_proyectos").style.display =
+      "block";
+    document.querySelector(".contenedor_grid_proyectos").style.display = "none";
+  }
+}
+
+// Fin de seccion de proyectos
+
+// Seccion de hitos
+
+function crear_row_hitos(el) {
+  let color_asignado = get_variable_css(
+    el.avance <= 25
+      ? "--color-25"
+      : el.avance <= 50
+      ? "--color-50"
+      : el.avance <= 75
+      ? "--color-75"
+      : "--color-100"
+  );
+
+  let level = sessionStorage.getItem("level_result")
+    ? sessionStorage.getItem("level_result")
+    : "pilares";
+
+  console.log(level);
+
+  let tr = document.createElement("tr");
+
+  let td_gerencia = document.createElement("td");
+  td_gerencia.innerHTML = el.nombre;
+
+  let td_avance = document.createElement("td");
+  td_avance.className = "avance";
+
+  let div_progress = document.createElement("div");
+  div_progress.className = "progress";
+
+  let div_progress_bar = document.createElement("div");
+  div_progress_bar.className = "progress-bar";
+  div_progress_bar.style.width = el.avance + "%";
+  div_progress_bar.style.backgroundColor = color_asignado;
+
+  td_avance.appendChild(div_progress);
+  div_progress.appendChild(div_progress_bar);
+
+  let td_porcentaje = document.createElement("td");
+  td_porcentaje.className = "td_centrado";
+
+  let i_circle = document.createElement("i");
+  i_circle.className = "fas fa-circle";
+  i_circle.style.color = color_asignado;
+
+  let span_porc = document.createElement("span");
+  span_porc.innerHTML = el.avance + "%";
+  // td_porcentaje.innerHTML = el.avance + "%";
+
+  td_porcentaje.appendChild(i_circle);
+
+  td_porcentaje.appendChild(span_porc);
+
+  //<i class="fas fa-circle"></i>
+
+  let td_acciones = document.createElement("td");
+
+  let btn_accion = document.createElement("button");
+  btn_accion.innerHTML = "Ver detalle";
+  btn_accion.setAttribute("data-id", level + "_" + el.id);
+  btn_accion.classList.add("btn");
+  btn_accion.addEventListener("click", function (e) {
+    let id_nivel = this.getAttribute("data-id").split("_")[1];
+    let nivel = this.getAttribute("data-id").split("_")[0];
+
+    // switch (nivel) {
+    //   case "pilares":
+    //     sessionStorage.setItem("id_pilar", id_nivel);
+    //     sessionStorage.setItem("level_result", "gerencias");
+    //     break;
+    //   case "gerencias":
+    //     sessionStorage.setItem("id_gerencia", id_nivel);
+    //     sessionStorage.setItem("level_result", "proyectos");
+    //     break;
+    //   case "proyectos":
+    //     sessionStorage.setItem("id_proyecto", id_nivel);
+    //     sessionStorage.setItem("level_result", "hitos");
+    //     break;
+    //   case "hitos":
+    //     sessionStorage.setItem("id_hito", id_nivel);
+    //     sessionStorage.setItem("level_result", "hito");
+    //     break;
+    //   case "hito":
+    //     sessionStorage.setItem("id_hito", id_nivel);
+    //     sessionStorage.setItem("level_result", "hito");
+    //     break;
+    // }
+
+    // obtener_resultados(get_setting_view());
+  });
+
+  td_acciones.appendChild(btn_accion);
+
+  tr.appendChild(td_gerencia);
+  tr.appendChild(td_avance);
+  tr.appendChild(td_porcentaje);
+  tr.appendChild(td_acciones);
+
+  return tr;
+}
+
+function crear_card_hitos(el) {
+  let color_asignado = get_variable_css(
+    el.avance <= 25
+      ? "--color-25"
+      : el.avance <= 50
+      ? "--color-50"
+      : el.avance <= 75
+      ? "--color-75"
+      : "--color-100"
+  );
+
+  let level = sessionStorage.getItem("level_result")
+    ? sessionStorage.getItem("level_result")
+    : "pilares";
+
+  console.log(level);
+
+  let div_card = document.createElement("div");
+  div_card.className = "card";
+  div_card.setAttribute("data-id", level + "_" + el.id);
+  div_card.style.borderLeftColor = color_asignado;
+  div_card.addEventListener("click", function (e) {
+    let id_nivel = this.getAttribute("data-id").split("_")[1];
+    let nivel = this.getAttribute("data-id").split("_")[0];
+
+    // switch (nivel) {
+    //   case "pilares":
+    //     sessionStorage.setItem("id_pilar", id_nivel);
+    //     sessionStorage.setItem("level_result", "gerencias");
+    //     break;
+    //   case "gerencias":
+    //     sessionStorage.setItem("id_gerencia", id_nivel);
+    //     sessionStorage.setItem("level_result", "proyectos");
+    //     break;
+    //   case "proyectos":
+    //     sessionStorage.setItem("id_proyecto", id_nivel);
+    //     sessionStorage.setItem("level_result", "hitos");
+    //     break;
+    //   case "hitos":
+    //     sessionStorage.setItem("id_hito", id_nivel);
+    //     sessionStorage.setItem("level_result", "hito");
+    //     break;
+    //   case "hito":
+    //     sessionStorage.setItem("id_hito", id_nivel);
+    //     sessionStorage.setItem("level_result", "hito");
+    //     break;
+    // }
+
+    // obtener_resultados(get_setting_view());
+  });
+
+  let div_card_header = document.createElement("div");
+  div_card_header.className = "card-header";
+
+  let h5 = document.createElement("h5");
+  h5.innerHTML = el.nombre;
+  let span = document.createElement("span");
+  span.innerHTML = el.avance + "%";
+
+  div_card_header.appendChild(h5);
+  div_card_header.appendChild(span);
+
+  let div_card_body = document.createElement("div");
+  div_card_body.className = "card-body";
+
+  let div_progress = document.createElement("div");
+  div_progress.className = "progress";
+
+  let div_progress_bar = document.createElement("div");
+  div_progress_bar.className = "progress-bar";
+  div_progress_bar.style.width = el.avance + "%";
+  div_progress_bar.style.background = color_asignado;
+
+  div_progress.appendChild(div_progress_bar);
+  div_card_body.appendChild(div_progress);
+
+  div_card.appendChild(div_card_header);
+  div_card.appendChild(div_card_body);
+
+  return div_card;
+}
+
+function mostrar_grid_hitos(data) {
+  document.querySelector(".contenedor_table_hitos").innerHTML = "";
+  let contenedor = document.querySelector(".contenedor_grid_hitos");
+  contenedor.innerHTML = "";
+
+  data.forEach((el) => {
+    contenedor.appendChild(crear_card_hitos(el));
+  });
+}
+
+function mostrar_table_hitos(data, base_nombre) {
+  console.log(data);
+  document.querySelector(".contenedor_grid_hitos").innerHTML = "";
+  let contenedor = document.querySelector(".contenedor_table_hitos");
+  contenedor.innerHTML = "";
+
+  let d_resp = document.createElement("div");
+  d_resp.className = "table-responsive";
+
+  contenedor.appendChild(d_resp);
+
+  let table = document.createElement("table");
+  d_resp.appendChild(table);
+
+  let thead = document.createElement("thead");
+  let tbody = document.createElement("tbody");
+
+  table.appendChild(thead);
+  table.appendChild(tbody);
+
+  let tr_head = document.createElement("tr");
+
+  let th_gerencia = document.createElement("th");
+  th_gerencia.innerHTML = base_nombre;
+
+  let th_avance = document.createElement("th");
+  th_avance.innerHTML = "Avance";
+  th_avance.className = "avance";
+
+  let th_porcentaje = document.createElement("th");
+  th_porcentaje.innerHTML = "Porcentaje";
+  th_porcentaje.classList.add("porcentaje");
+  th_porcentaje.classList.add("td_centrado");
+
+  let th_acciones = document.createElement("th");
+  th_acciones.innerHTML = "Acciones";
+  th_acciones.classList.add("td_centrado");
+
+  tr_head.appendChild(th_gerencia);
+  tr_head.appendChild(th_avance);
+  tr_head.appendChild(th_porcentaje);
+  tr_head.appendChild(th_acciones);
+
+  thead.appendChild(tr_head);
+
+  data.forEach((el) => {
+    tbody.appendChild(crear_row_hitos(el));
+  });
+}
+
+
+function retorna_primeros_n(data,n){
+  let data_100=[];
+  for(let i=0; i<n; i++){
+    data_100.push(data[i]);
+  }
+  return data_100;
+}
+
+function activa_grid_hitos(url_current) {
+  document.querySelector("#toggle_show_hitos").checked = false;
+
+  fetch(url_current)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      mostrar_grid_hitos(retorna_primeros_n(data.sort(compara),100));
+    })
+    .catch((error) => console.log(error));
+
+  sessionStorage.setItem("tipo_vista_hitos", "grid");
+}
+
+function activa_tabla_hitos(url_current, base_nombre) {
+  document.querySelector("#toggle_show_hitos").checked = true;
+  fetch(url_current)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      mostrar_table_hitos(retorna_primeros_n(data.sort(compara),100), base_nombre);
+    })
+    .catch((error) => console.log(error));
+
+  sessionStorage.setItem("tipo_vista_hitos", "table");
+}
+
+function carga_hitos(tipo_vista) {
+  if (["grid", "", null].includes(tipo_vista)) {
+    activa_grid_hitos(urls[3].url);
+    document.querySelector(".contenedor_table_hitos").style.display =
+      "none";
+    document.querySelector(".contenedor_grid_hitos").style.display = "grid";
+  } else {
+    activa_tabla_hitos(urls[3].url, urls[3].nombre);
+    document.querySelector(".contenedor_table_hitos").style.display =
+      "block";
+    document.querySelector(".contenedor_grid_hitos").style.display = "none";
+  }
+}
+
+// Fin de seccion de hitos
 
 let list_opcion_menu = document.querySelectorAll(".opcion_menu");
 list_opcion_menu.forEach((el) => {
@@ -1503,6 +2178,14 @@ list_opcion_menu.forEach((el) => {
       case "ejecucionppo":
         carga_ejecucionppo(get_setting_view_ejecppo());
         break;
+
+      case "proyectos":
+        carga_proyectos(get_setting_view_proyectos());
+        break;
+
+      case "hitos":
+        carga_hitos(get_setting_view_hitos());
+        break;
     }
 
     // console.log(this.getAttribute('data-id').split("_")[1]);
@@ -1527,3 +2210,30 @@ salir.addEventListener("click", function (e) {
     }
   });
 });
+
+
+
+function ejecuta_link(opcion){
+  let lista_links = document.querySelectorAll('.opcion_menu');
+  lista_links.forEach((el) => {
+    if(el.getAttribute('data-id')==opcion){
+      el.click();
+    }
+  })
+}
+
+
+let cartilla_btn_proyectos=document.querySelector('#cartilla_btn_proyectos');
+cartilla_btn_proyectos.addEventListener("click",function(e) {
+  ejecuta_link("menulat_proyectos");
+})
+
+let cartilla_btn_ejecppo=document.querySelector('#cartilla_btn_ejecppo');
+cartilla_btn_ejecppo.addEventListener("click",function(e) {
+  ejecuta_link("menulat_ejecucionppo");
+})
+
+let cartilla_btn_hitos=document.querySelector('#cartilla_btn_hitos');
+cartilla_btn_hitos.addEventListener("click",function(e) {
+  ejecuta_link("menulat_hitos");
+})
