@@ -550,6 +550,37 @@ toggle_show_hitos.addEventListener("change", function () {
 });
 
 
+let list_tab_menu_item = document.querySelectorAll('.tab-menu-ejecucionppo-item');
+console.log(list_tab_menu_item);
+
+for(let i=0;i<list_tab_menu_item.length;i++){
+  list_tab_menu_item[i].addEventListener('click',function(e){
+    // console.log(this);
+    
+    let lista_links_menu = document.querySelectorAll('.tab-menu-ejecucionppo-item');
+    lista_links_menu.forEach(el=>{
+      el.classList.remove('tab-menu-ejecucionppo-item-active');
+    })
+
+    this.classList.add('tab-menu-ejecucionppo-item-active');
+
+
+    let lista_contenido_menu = document.querySelectorAll('.tab-menu-content');
+    lista_contenido_menu.forEach(el=>{
+      el.classList.remove('tab-menu-content-active');
+    })
+
+    // console.log(document.querySelector('#'+this.getAttribute('data-contenido')));
+
+    document.querySelector('#'+this.getAttribute('data-contenido')).classList.add('tab-menu-content-active');
+    
+
+  })
+}
+
+
+
+
 function crea_elemento_retorno(ele) {
   if (ele.tipo == "button") {
     let boton = document.createElement("span");
@@ -2237,3 +2268,6 @@ let cartilla_btn_hitos=document.querySelector('#cartilla_btn_hitos');
 cartilla_btn_hitos.addEventListener("click",function(e) {
   ejecuta_link("menulat_hitos");
 })
+
+
+

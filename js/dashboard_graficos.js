@@ -94,6 +94,15 @@ function crear_graficos_dashboard(){
     
       // ----------------------------------------------------------------
     
+
+fetch('../data/gerencias.json')
+.then(response => response.json())
+.then(data=>{
+  console.log(data);
+})
+
+
+
       let xValues = [
         "Gerencia 1",
         "Gerencia 2",

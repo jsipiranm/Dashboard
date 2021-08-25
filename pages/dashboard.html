@@ -142,18 +142,41 @@
           <div class="contenedor_hito"></div>
         </article>
         <article id="art_ejecucionppo" class="cont_princ act-ejecucionppo">
-          <div class="header">
-            <h5 id="titulo">Ejecución presupuestal</h5>
-            <div class="custome-check">
-              <i id="chk_grid_ejecppo" class="fas fa-th"></i>
-              <input type="checkbox" id="toggle_show_ejecppo" />
-              <i id="chk_table_ejecppo" class="fas fa-align-justify"></i>
-            </div>
-          </div>
-          
-          <h5 id="titulo_mobile">Ejecución presupuestal</h5>
-          <div class="contenedor_grid_ejecppo"></div>
-          <div class="contenedor_table_ejecppo"></div>
+
+<ul class="tab-menu-ejecucionppo">
+  <li class="tab-menu-ejecucionppo-item tab-menu-ejecucionppo-item-active" data-contenido="tab-menu-content-cumplimiento">Cumplimiento</li>
+  <li class="tab-menu-ejecucionppo-item" data-contenido="tab-menu-content-evolucion">Evolución mensual</li>
+</ul>
+
+<section id="tab-menu-content-cumplimiento" class="tab-menu-content tab-menu-content-active">
+  <div class="header">
+    <h5 id="titulo">Ejecución presupuestal</h5>
+    <div class="custome-check">
+      <i id="chk_grid_ejecppo" class="fas fa-th"></i>
+      <input type="checkbox" id="toggle_show_ejecppo" />
+      <i id="chk_table_ejecppo" class="fas fa-align-justify"></i>
+    </div>
+  </div>
+  
+  <h5 id="titulo_mobile">Ejecución presupuestal</h5>
+  <div class="contenedor_grid_ejecppo"></div>
+  <div class="contenedor_table_ejecppo"></div>
+</section>
+
+<section id="tab-menu-content-evolucion" class="tab-menu-content">
+  <div class="chartCard">
+    <select name="sel_gerencias" id="sel_gerencias">
+        <option value="0">Gobierno Regional de La Libertad</option>
+    </select>
+    <div class="chartBox">
+      <canvas id="myChartEvo"></canvas>
+    </div>
+  </div>
+</section>
+
+
+
+
         </article>
         <article id="art_proyectos" class="cont_princ act-proyectos">
           <div class="header">
@@ -194,5 +217,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"></script>
     <script src="../js/dashboard_graficos.js"></script>
+    <script src="../js/ejec_ppo_evo.js"></script>
   </body>
 </html>
