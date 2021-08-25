@@ -487,12 +487,16 @@ input[type="checkbox"]:checked{
   .cont_princ.act-dashboard.active {
     grid-template-columns: repeat(2, 1fr);
   }
+
+
 }
 
 @media screen and (max-width: 560px) {
   .cont_princ.act-dashboard.active {
     grid-template-columns: repeat(1, 1fr);
   }
+
+
   .chartBox{
     width: 100%;
   }
@@ -605,7 +609,9 @@ input[type="checkbox"]:checked{
   transition: transform 0.3s;
 }
 
-
+.contorno-doble{
+  grid-column: 2 / 4;
+}
 
 .cartilla{
   padding: 2rem;
@@ -866,6 +872,9 @@ td {
     grid-template-columns: repeat(2, 1fr);
 }
   
+.contorno-doble{
+  grid-column: 1 / 3;
+}
 }
 
 @media screen and (max-width:560px){
@@ -878,6 +887,10 @@ td {
 
   .principal{
     grid-template-columns: repeat(1, 1fr);
+}
+
+.contorno-doble{
+  grid-column: 1 / 2;
 }
 
   #titulo_mobile{

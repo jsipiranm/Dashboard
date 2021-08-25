@@ -551,7 +551,7 @@ toggle_show_hitos.addEventListener("change", function () {
 
 
 let list_tab_menu_item = document.querySelectorAll('.tab-menu-ejecucionppo-item');
-console.log(list_tab_menu_item);
+// console.log(list_tab_menu_item);
 
 for(let i=0;i<list_tab_menu_item.length;i++){
   list_tab_menu_item[i].addEventListener('click',function(e){
